@@ -12,73 +12,20 @@ SETUP
 Tip: answers can differ a little each time you run a prompt.
 Always check the key numbers before you trust them.
 
--------------------------------------------------------------------------------
-STEP 1 - UNDERSTAND THE DATA
--------------------------------------------------------------------------------
-I am a consultant reviewing haul truck performance for a coal mining client.
-Explain what this dataset covers: the period, pits, trucks, shifts and what
-one row represents. Then suggest the 5 most valuable business questions this
-data can answer for the mine manager.
+===P1:
+Hi Copilot, act as my mining analyst. 
+Let's understand this haul truck data first, then follow me to analyze it: 
+why is production below target? Put your work on a new sheet called Analysis.
 
--------------------------------------------------------------------------------
-STEP 2 - CLEAN THE DATA
--------------------------------------------------------------------------------
-2a. Data quality check
-Act as a data quality analyst. Check this table for data quality issues:
-inconsistent spelling in Shift and Pit, mixed Indonesian and English in
-Delay_Reason, blank cells, duplicate rows, and values that look like they
-are in the wrong unit. Answer as a table with these columns:
-Column | Issue | Example | Rows affected | Suggested fix.
+===P2:
+Some entries look inconsistent: spelling in Shift and Pit, Indonesian and English in Delay_Reason, 
+payload in kg instead of tonnes, and duplicate rows. 
+Clean them, list what you fixed, and redo the analysis on the same sheet.
 
-2b. One language for delay reasons
-Add a column called Delay_Category that groups Delay_Reason into these
-English categories: Rain, Waiting for loader, Breakdown, Tyre, Road
-maintenance, Refuelling, None. Treat Hujan and Hujan deras as Rain; Antri
-loader and Tunggu excavator as Waiting for loader; any reason containing
-Rusak, Mesin rusak or Breakdown as Breakdown; Ban bocor as Tyre; Perbaikan
-jalan as Road maintenance; Isi BBM as Refuelling; blank as None.
-
-2c. Calculated columns
-Add two calculated columns: Actual_Tonnes = Trips x Avg_Payload_t, and
-Fuel_per_Tonne = Fuel_Used_L / Actual_Tonnes. If Avg_Payload_t is greater
-than 1000, divide it by 1000 first because it was recorded in kg.
-
--------------------------------------------------------------------------------
-STEP 3 - ANALYSE (a full C.O.R.E prompt)
--------------------------------------------------------------------------------
-Context: We are a consulting team reviewing why haul truck production fell
-below target at a coal mine between July and September 2026.
-Objective: Identify the top 3 drivers of the production gap, using
-Actual_Tonnes against Target_Tonnes, by month, by pit and by
-Delay_Category.
-Role: Act as a senior mining operations analyst.
-Expectation: Respond in a table: Driver | Evidence (with numbers) | Impact
-on tonnes | Recommended action. End with a one-sentence executive summary.
-
--------------------------------------------------------------------------------
-STEP 4 - VISUALISE
--------------------------------------------------------------------------------
-Create a line chart of weekly average Fuel_per_Tonne for truck HT-07
-compared with the average of all other trucks, from July to September
-2026. Then tell me whether HT-07 showed any warning sign before its
-breakdown in mid-September.
-
--------------------------------------------------------------------------------
-CHALLENGES - what else is hidden in the data?
--------------------------------------------------------------------------------
-Highlight the rows where Avg_Payload_t is above 90.7 tonnes, the rated
-payload of the CAT 777E. Which truck overloads most often, and is it one
-operator or several? What does that suggest about the root cause?
-
-Rank operators by average Avg_Cycle_Time_min within each pit. Who is the
-best operator in each pit, and is anyone on the night shift performing
-better than the day shift?
-
-Create a PivotTable of total Downtime_Hours by Pit and Delay_Category on a
-new sheet, and add a stacked bar chart.
-
-Now write your own prompt with C.O.R.E:
-Context - Objective - Role - Expectation.
+===P3:
+Prompt 3
+Step 3 of 3: visualize only. Add charts for target achievement by month and by pit, and downtime hours by reason, 
+plus a 3-line executive summary on the Analysis sheet. Then stop.
 
 ===============================================================================
  Fictional data for training. It does not represent any real company.
