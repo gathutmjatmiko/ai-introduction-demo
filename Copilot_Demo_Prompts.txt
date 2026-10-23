@@ -5,9 +5,15 @@
 ===============================================================================
 
 SETUP
-1. Save the Excel file to your OneDrive and turn on AutoSave.
-2. Click any cell inside the table on the Haul_Data sheet.
-3. Open Copilot from the Home tab. Paste one prompt at a time.
+[ ] Simpan file ke OneDrive / SharePoint. Copilot butuh AutoSave ON.
+[ ] Data sudah dalam Excel Table bernama "HaulData". Jangan diubah.
+[ ] Buka sheet Haul_Data, klik satu sel di dalam tabel.
+[ ] Buka panel Copilot (tab Home > Copilot). Pastikan sudah login akun
+    kantor.
+[ ] Zoom Excel 120%+, perbesar panel Copilot jika diperlukan.
+[ ] Siapkan SALINAN CADANGAN file yang bersih jika diperlukan (prompt yang menambah
+    kolom akan mengubah file).
+[ ] Buka file TXT ini di layar kedua untuk copy-paste prompt.
 
 Tip: answers can differ a little each time you run a prompt.
 Always check the key numbers before you trust them.
